@@ -1,0 +1,487 @@
+/* ===================================== */
+/* Global Styles & Background            */
+/* ===================================== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A slightly more "beautiful" sans-serif stack */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333; /* Default text color for general content */
+    line-height: 1.6; /* Improved readability */
+}
+
+/* Main Page Background Image */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-image: url("logo 2.png"); /* Main page background image */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.9; /* High opacity as requested */
+}
+
+/* ===================================== */
+/* Header                                */
+/* ===================================== */
+header {
+    background-color: #212529; /* Dark black/grey */
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+/* ===================================== */
+/* Navigation (Bootstrap Navbar with custom button look) */
+/* ===================================== */
+.navbar {
+    background-color: #343a40 !important; /* Dark grey navbar background */
+    border-bottom: 3px solid #007bff; /* Blue accent line */
+    padding: 1rem 0; /* Add padding to the navbar itself */
+}
+
+/* Styles for individual navigation links to make them look like buttons */
+.navbar .nav-link {
+    background-color: rgb(179, 0, 0); /* Specific red background for nav buttons */
+    border: none;
+    color: white !important; /* White text, forced */
+    padding: 10px 20px;
+    margin: 5px 10px; /* Space between buttons */
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 500;
+    text-transform: uppercase; /* Make nav text uppercase for emphasis */
+    letter-spacing: 0.5px;
+}
+
+/* Hover effect for navigation links */
+.navbar .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Darker, more distinct hover effect */
+    color: white !important; /* Keep text white on hover */
+}
+
+/* Active state for navigation links */
+.navbar .nav-link.active {
+    background-color: #007bff !important; /* Blue for active link (more prominent) */
+    color: white !important; /* Keep text white for active state */
+    font-weight: 600;
+}
+
+/* ===================================== */
+/* Banner Section                        */
+/* ===================================== */
+#banner {
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#banner video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.banner-content {
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly darker for better text contrast */
+    padding: 3rem;
+    border-radius: 15px;
+    max-width: 900px;
+    margin: 0 15px;
+    color: white; /* Ensure text is white */
+}
+
+.banner-content h2 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 1s ease-in-out;
+    color: white; /* Explicitly ensure white */
+}
+
+.banner-content p {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #e9ecef; /* Light grey for good readability */
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+/* ===================================== */
+/* Main Sections & Container Styling     */
+/* ===================================== */
+main {
+    flex: 1; /* Allows main content to grow */
+    padding: 0; /* Sections will handle their own padding */
+}
+
+main section {
+    position: relative;
+    z-index: 0;
+    padding: 60px 0; /* Consistent vertical padding for all sections */
+}
+
+/* Transparent Box Style (for About, Vision - lighter background, dark text) */
+.transparent-box {
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+    backdrop-filter: blur(4px); /* Adds a subtle blur effect to background behind box */
+    -webkit-backdrop-filter: blur(4px); /* For Safari support */
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+    border: 2px solid rgba(0, 0, 0, 0.3); /* Subtle black border */
+    color: #333; /* Dark text for readability on light background */
+}
+
+#about .container,
+#services .container,
+#vision .container,
+#contact .container, /* <-- #contact .container is now included here for light box */
+#careers .container { /* <-- #careers .container is now included here for light box */
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+    backdrop-filter: blur(4px); /* Adds a subtle blur effect to background behind box */
+    -webkit-backdrop-filter: blur(4px); /* For Safari support */
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+    border: 2px solid rgba(0, 0, 0, 0.15); /* Subtle border */
+    color: #333; /* Default text color for readability on light background */
+    /* ALL LOGO-RELATED STYLES REMOVED FROM HERE */
+    /* This makes sure no logo appears in any transparent box */
+    background-image: none; /* Explicitly remove any default background image */
+}
+
+/* Ensure headings and paragraphs inside these light transparent-boxes are dark */
+#about .container *,
+#services .container *,
+#vision .container *,
+#contact .container *,
+#careers .container * { /* <-- #careers .container * is now included here for dark text */
+    color: #333 !important; /* Force dark text for contrast on light background */
+}
+
+/* IMPORTANT: If you still want a DARK container for any page (e.g., if you change your mind for 'careers'),
+   you would add a specific rule like this for that section's container:
+   #careers .container {
+       background-color: rgba(0, 0, 0, 0.8);
+       color: white !important;
+       border: 2px solid black;
+       box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+   }
+   And ensure all * within it are white:
+   #careers .container * { color: white !important; }
+   But based on your screenshots, Careers is now also light.
+*/
+
+/* Ensure headings and paragraphs inside transparent-box are dark */
+.transparent-box h2,
+.transparent-box h3,
+.transparent-box p,
+.transparent-box ul,
+.transparent-box li {
+    color: #333 !important; /* Force dark text for contrast */
+}
+
+/* Dark Containers with Logo (for Services, Contact, Careers - dark background, white text, logo) */
+#ouroffer.container {
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+    backdrop-filter: blur(4px); /* Adds a subtle blur effect to background behind box */
+    -webkit-backdrop-filter: blur(4px); /* For Safari support */
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+    border: 2px solid rgba(0, 0, 0, 0.3); /* Subtle black border */
+    color: #333; /* Dark text for readability on light background */
+}
+
+/* Headings within sections */
+main section h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+main section h3 {
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+main section p,
+main section ul {
+    font-size: 1.1rem;
+    line-height: 1.7; /* Improved line spacing for readability */
+}
+
+/* ===================================== */
+/* Service Cards                         */
+/* ===================================== */
+.card {
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Darker shadow for cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: rgba(80, 80, 80, 0) !important; /* Slightly lighter dark grey for cards */
+    color: black !important; /* Ensure card text is white */
+}
+
+.card:hover {
+    transform: translateY(-8px); /* Lift card more on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: black !important;
+}
+
+.card-text {
+    color:rgba(248, 249, 250, 0) !important; /* Lighter white for card body text */
+}
+
+.card-text ul {
+    margin-left: 1.5rem;
+    list-style-type: disc;
+}
+
+/* ===================================== */
+/* Form Styles                           */
+/* ===================================== */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgb(255, 255, 255); /* Consistent shadow */
+    background-color: rgba(221, 139, 139, 0.9); /* Dark background for form */
+    padding: 2.5rem;
+    border-radius: 8px;
+}
+
+label {
+    margin-bottom: 8px; /* More space below labels */
+    font-weight: 500;
+    color: black !important; /* White labels */
+}
+
+input,
+textarea {
+    padding: 12px; /* Slightly larger padding */
+    margin-bottom: 15px; /* More space below inputs */
+    border: 1px solid #777; /* Darker border */
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.15); /* Subtle white background */
+    color: white; /* White input text */
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6); /* Lighter placeholder text */
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #007bff; /* Blue focus border */
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.25); /* Slightly more opaque on focus */
+}
+
+button[type="submit"] {
+    background-color: #007bff !important;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem; /* Slightly larger submit button text */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3 !important;
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* ===================================== */
+/* Careers Section (Job Listings)        */
+/* ===================================== */
+#job-openings {
+    margin-top: 30px; /* More space above job listings */
+}
+
+.job-listing {
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Lighter border for job listings on dark background */
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05); /* Very subtle background for each listing */
+}
+
+.job-listing h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: white !important; /* Ensure heading is white */
+}
+
+.job-listing ul {
+    list-style-type: disc;
+    margin-left: 25px;
+    color: #e9ecef !important; /* Lighter white for list items */
+}
+
+.job-listing li {
+    margin-bottom: 5px;
+}
+
+.job-listing b {
+    font-weight: bold;
+    color: white !important; /* Ensure bold text is white */
+}
+
+/* ===================================== */
+/* Footer                                */
+/* ===================================== */
+footer {
+    background-color: #212529 !important;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0; /* More padding */
+    margin-top: auto; /* Push footer to bottom */
+    font-size: 0.9rem;
+}
+
+/* ===================================== */
+/* Responsive Adjustments                */
+/* ===================================== */
+@media (max-width: 992px) { /* Medium screens */
+    .navbar .nav-link {
+        margin: 5px; /* Reduce margin for better fit */
+        display: block; /* Make them stack vertically in collapsed menu */
+    }
+    .banner-content {
+        padding: 2.5rem;
+    }
+    main section {
+        padding: 50px 0;
+    }
+    #about .container,
+    #services .container,
+    #vision .container,
+    #contact .container,
+    #careers .container {
+        padding: 2rem;
+    }
+    .card {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) { /* Small screens */
+    header h1 {
+        font-size: 2.5rem;
+    }
+    header p {
+        font-size: 1rem;
+    }
+    .banner-content h2 {
+        font-size: 2rem;
+    }
+    .banner-content p {
+        font-size: 1.2rem;
+    }
+    #banner {
+        height: 350px;
+    }
+    main section {
+        padding: 40px 0;
+    }
+    #about .container,
+    #services .container,
+    #vision .container,
+    #contact .container,
+    #careers .container {
+        padding: 1.5rem;
+        background-size: 80%; /* Make logo slightly larger on smaller screens if needed */
+    }
+    form {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) { /* Extra small screens */
+    .navbar .nav-link {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+    .banner-content {
+        padding: 1.5rem;
+    }
+    .banner-content h2 {
+        font-size: 1.8rem;
+    }
+    .banner-content p {
+        font-size: 1rem;
+    }
+    .card-title {
+        font-size: 1.2rem;
+    }
+    main section p,
+    main section ul {
+        font-size: 1rem;
+    }
+}
+
+/* Scroll-to-top Button Styles */
+#scrollToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position */
+    bottom: 20px; /* Distance from bottom */
+    right: 30px; /* Distance from right */
+    z-index: 99; /* Higher z-index to be above other content */
+    border: none; /* No border */
+    outline: none; /* No outline */
+    background-color: rgba(0, 123, 255, 0.7); /* Blue background with transparency */
+    color: white; /* White text/arrow */
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 50%; /* Circular shape */
+    font-size: 20px; /* Large arrow */
+    line-height: 1; /* Adjust line height for arrow */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow */
+    transition: background-color 0.3s, opacity 0.3s, transform 0.3s;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
