@@ -1,17 +1,79 @@
-/* ===================================== */
-/* Global Styles & Background            */
-/* ===================================== */
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A slightly more "beautiful" sans-serif stack */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    color: #333; /* Default text color for general content */
-    line-height: 1.6; /* Improved readability */
+    color: #333;
+    line-height: 1.6;
 }
 
-/* Main Page Background Image */
+.custom-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  padding: 15px 20px;
+  position: relative;
+  color: white;
+  z-index: 1000;
+}
+
+
+.custom-navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.custom-navbar .nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.custom-navbar .nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.custom-navbar .nav-links li a:hover {
+  color: #ffcc00;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #222;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 10px 0;
+  }
+}
+
 .background-image {
     position: fixed;
     top: 0;
@@ -19,18 +81,15 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: -1;
-    background-image: url("logo 2.png"); /* Main page background image */
+    background-image: url("logo 2.png"); 
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    opacity: 0.9; /* High opacity as requested */
+    opacity: 0.9;
 }
 
-/* ===================================== */
-/* Header                                */
-/* ===================================== */
 header {
-    background-color: #212529; /* Dark black/grey */
+    background-color: #212529;
     color: white;
     padding: 1.5rem 0;
     text-align: center;
@@ -47,47 +106,60 @@ header p {
     font-weight: 300;
 }
 
-/* ===================================== */
-/* Navigation (Bootstrap Navbar with custom button look) */
-/* ===================================== */
 .navbar {
-    background-color: #343a40 !important; /* Dark grey navbar background */
-    border-bottom: 3px solid #007bff; /* Blue accent line */
-    padding: 1rem 0; /* Add padding to the navbar itself */
+    background-color:  #212529!important; 
+    border-bottom: 3px solid #007bff; 
+    padding: 1rem 0; 
 }
 
-/* Styles for individual navigation links to make them look like buttons */
 .navbar .nav-link {
-    background-color: rgb(179, 0, 0); /* Specific red background for nav buttons */
+    background-color: rgb(179, 0, 0);
     border: none;
-    color: white !important; /* White text, forced */
+    color: white !important; 
     padding: 10px 20px;
-    margin: 5px 10px; /* Space between buttons */
+    margin: 5px 10px; 
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
     font-weight: 500;
-    text-transform: uppercase; /* Make nav text uppercase for emphasis */
+    text-transform: uppercase; 
     letter-spacing: 0.5px;
 }
 
-/* Hover effect for navigation links */
 .navbar .nav-link:hover {
-    background-color: rgba(0, 0, 0, 0.5) !important; /* Darker, more distinct hover effect */
-    color: white !important; /* Keep text white on hover */
+    background-color: rgba(0, 0, 0, 0.5) !important; 
+    color: white !important;
 }
 
-/* Active state for navigation links */
+
 .navbar .nav-link.active {
-    background-color: #007bff !important; /* Blue for active link (more prominent) */
-    color: white !important; /* Keep text white for active state */
+    background-color: #007bff !important; 
+    color: white !important;
     font-weight: 600;
 }
+.navbar {
+    background-color: #212529 !important;
+    border-bottom: 3px solid #007bff;
+    padding: 1rem 0;
+}
 
-/* ===================================== */
-/* Banner Section                        */
-/* ===================================== */
+.navbar .container {
+    justify-content: center !important; /* Center content inside the navbar */
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav-item {
+    margin: 0 0.5rem;
+    text-align: center;
+}
+
+
 #banner {
     position: relative;
     overflow: hidden;
@@ -110,12 +182,12 @@ header p {
 
 .banner-content {
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.6); /* Slightly darker for better text contrast */
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 3rem;
     border-radius: 15px;
     max-width: 900px;
     margin: 0 15px;
-    color: white; /* Ensure text is white */
+    color: white; 
 }
 
 .banner-content h2 {
@@ -123,101 +195,81 @@ header p {
     line-height: 1.2;
     margin-bottom: 1.5rem;
     animation: fadeInUp 1s ease-in-out;
-    color: white; /* Explicitly ensure white */
+    color: white; 
 }
 
 .banner-content p {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
-    color: #e9ecef; /* Light grey for good readability */
+    color: #e9ecef; 
     animation: fadeInUp 1.5s ease-in-out;
 }
 
-/* ===================================== */
-/* Main Sections & Container Styling     */
-/* ===================================== */
 main {
-    flex: 1; /* Allows main content to grow */
-    padding: 0; /* Sections will handle their own padding */
+    flex: 1; 
+    padding: 0;
 }
 
 main section {
     position: relative;
     z-index: 0;
-    padding: 60px 0; /* Consistent vertical padding for all sections */
+    padding: 60px 0;
 }
 
-/* Transparent Box Style (for About, Vision - lighter background, dark text) */
 .transparent-box {
-    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
-    backdrop-filter: blur(4px); /* Adds a subtle blur effect to background behind box */
-    -webkit-backdrop-filter: blur(4px); /* For Safari support */
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px); 
+    -webkit-backdrop-filter: blur(4px);
     padding: 2.5rem;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
-    border: 2px solid rgba(0, 0, 0, 0.3); /* Subtle black border */
-    color: #333; /* Dark text for readability on light background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    color: #333; 
 }
 
 #about .container,
 #services .container,
 #vision .container,
-#contact .container, /* <-- #contact .container is now included here for light box */
-#careers .container { /* <-- #careers .container is now included here for light box */
-    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
-    backdrop-filter: blur(4px); /* Adds a subtle blur effect to background behind box */
-    -webkit-backdrop-filter: blur(4px); /* For Safari support */
+#contact .container, 
+#careers .container { 
+    background-color: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     padding: 2.5rem;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
-    border: 2px solid rgba(0, 0, 0, 0.15); /* Subtle border */
-    color: #333; /* Default text color for readability on light background */
-    /* ALL LOGO-RELATED STYLES REMOVED FROM HERE */
-    /* This makes sure no logo appears in any transparent box */
-    background-image: none; /* Explicitly remove any default background image */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    color: #333; 
+    background-image: none;
 }
 
-/* Ensure headings and paragraphs inside these light transparent-boxes are dark */
-#about .container *,
+
 #services .container *,
 #vision .container *,
 #contact .container *,
-#careers .container * { /* <-- #careers .container * is now included here for dark text */
-    color: #333 !important; /* Force dark text for contrast on light background */
+#careers .container * { 
+    color: #333 !important; 
 }
 
-/* IMPORTANT: If you still want a DARK container for any page (e.g., if you change your mind for 'careers'),
-   you would add a specific rule like this for that section's container:
-   #careers .container {
-       background-color: rgba(0, 0, 0, 0.8);
-       color: white !important;
-       border: 2px solid black;
-       box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-   }
-   And ensure all * within it are white:
-   #careers .container * { color: white !important; }
-   But based on your screenshots, Careers is now also light.
-*/
 
-/* Ensure headings and paragraphs inside transparent-box are dark */
 .transparent-box h2,
 .transparent-box h3,
 .transparent-box p,
 .transparent-box ul,
 .transparent-box li {
-    color: #333 !important; /* Force dark text for contrast */
+    color: #333 !important;
 }
 
-/* Dark Containers with Logo (for Services, Contact, Careers - dark background, white text, logo) */
+
 #ouroffer.container {
-    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
-    backdrop-filter: blur(4px); /* Adds a subtle blur effect to background behind box */
-    -webkit-backdrop-filter: blur(4px); /* For Safari support */
+    background-color: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px); 
     padding: 2.5rem;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
-    border: 2px solid rgba(0, 0, 0, 0.3); /* Subtle black border */
-    color: #333; /* Dark text for readability on light background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    color: #333; 
 }
 
 /* Headings within sections */
@@ -238,23 +290,19 @@ main section h3 {
 main section p,
 main section ul {
     font-size: 1.1rem;
-    line-height: 1.7; /* Improved line spacing for readability */
+    line-height: 1.7; 
 }
-
-/* ===================================== */
-/* Service Cards                         */
-/* ===================================== */
 .card {
     border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Darker shadow for cards */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: rgba(80, 80, 80, 0) !important; /* Slightly lighter dark grey for cards */
-    color: black !important; /* Ensure card text is white */
+    background-color: rgba(80, 80, 80, 0) !important;
+    color: black !important; 
 }
 
 .card:hover {
-    transform: translateY(-8px); /* Lift card more on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .card-title {
@@ -265,7 +313,7 @@ main section ul {
 }
 
 .card-text {
-    color:rgba(248, 249, 250, 0) !important; /* Lighter white for card body text */
+    color:rgba(248, 249, 250, 0) !important; 
 }
 
 .card-text ul {
@@ -273,47 +321,44 @@ main section ul {
     list-style-type: disc;
 }
 
-/* ===================================== */
-/* Form Styles                           */
-/* ===================================== */
 form {
     display: flex;
     flex-direction: column;
     max-width: 500px;
     margin: 0 auto;
-    box-shadow: 0 4px 15px rgb(255, 255, 255); /* Consistent shadow */
-    background-color: rgba(221, 139, 139, 0.9); /* Dark background for form */
+    box-shadow: 0 4px 15px rgb(255, 255, 255); 
+    background-color: rgba(221, 139, 139, 0.9);
     padding: 2.5rem;
     border-radius: 8px;
 }
 
 label {
-    margin-bottom: 8px; /* More space below labels */
+    margin-bottom: 8px;
     font-weight: 500;
-    color: black !important; /* White labels */
+    color: black !important; 
 }
 
 input,
 textarea {
-    padding: 12px; /* Slightly larger padding */
-    margin-bottom: 15px; /* More space below inputs */
-    border: 1px solid #777; /* Darker border */
+    padding: 12px;
+    margin-bottom: 15px; 
+    border: 1px solid #777; 
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.15); /* Subtle white background */
-    color: white; /* White input text */
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white; 
 }
 
 input::placeholder,
 textarea::placeholder {
-    color: rgba(255, 255, 255, 0.6); /* Lighter placeholder text */
+    color: rgba(255, 255, 255, 0.6); 
 }
 
 input:focus,
 textarea:focus {
     outline: none;
-    border-color: #007bff; /* Blue focus border */
+    border-color: #007bff; 
     box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
-    background-color: rgba(255, 255, 255, 0.25); /* Slightly more opaque on focus */
+    background-color: rgba(255, 255, 255, 0.25);
 }
 
 button[type="submit"] {
@@ -323,40 +368,36 @@ button[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.1rem; /* Slightly larger submit button text */
+    font-size: 1.1rem; 
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button[type="submit"]:hover {
     background-color: #0056b3 !important;
-    transform: translateY(-2px); /* Slight lift on hover */
+    transform: translateY(-2px);
 }
 
-/* ===================================== */
-/* Careers Section (Job Listings)        */
-/* ===================================== */
 #job-openings {
-    margin-top: 30px; /* More space above job listings */
+    margin-top: 30px; 
 }
-
 .job-listing {
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Lighter border for job listings on dark background */
+    border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 20px;
     margin-bottom: 15px;
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.05); /* Very subtle background for each listing */
+    background-color: rgba(255, 255, 255, 0.05); 
 }
 
 .job-listing h3 {
     font-size: 1.3em;
     margin-bottom: 10px;
-    color: white !important; /* Ensure heading is white */
+    color: white !important; 
 }
 
 .job-listing ul {
     list-style-type: disc;
     margin-left: 25px;
-    color: #e9ecef !important; /* Lighter white for list items */
+    color: #e9ecef !important; 
 }
 
 .job-listing li {
@@ -365,28 +406,22 @@ button[type="submit"]:hover {
 
 .job-listing b {
     font-weight: bold;
-    color: white !important; /* Ensure bold text is white */
+    color: white !important; 
 }
 
-/* ===================================== */
-/* Footer                                */
-/* ===================================== */
 footer {
     background-color: #212529 !important;
     color: white;
     text-align: center;
-    padding: 1.5rem 0; /* More padding */
-    margin-top: auto; /* Push footer to bottom */
+    padding: 1.5rem 0; 
+    margin-top: auto; 
     font-size: 0.9rem;
 }
 
-/* ===================================== */
-/* Responsive Adjustments                */
-/* ===================================== */
-@media (max-width: 992px) { /* Medium screens */
+@media (max-width: 992px) { 
     .navbar .nav-link {
-        margin: 5px; /* Reduce margin for better fit */
-        display: block; /* Make them stack vertically in collapsed menu */
+        margin: 5px;
+        display: block; 
     }
     .banner-content {
         padding: 2.5rem;
@@ -406,7 +441,7 @@ footer {
     }
 }
 
-@media (max-width: 768px) { /* Small screens */
+@media (max-width: 768px) {
     header h1 {
         font-size: 2.5rem;
     }
@@ -431,14 +466,14 @@ footer {
     #contact .container,
     #careers .container {
         padding: 1.5rem;
-        background-size: 80%; /* Make logo slightly larger on smaller screens if needed */
+        background-size: 80%; 
     }
     form {
         padding: 1.5rem;
     }
 }
 
-@media (max-width: 576px) { /* Extra small screens */
+@media (max-width: 576px) { 
     .navbar .nav-link {
         font-size: 14px;
         padding: 8px 15px;
@@ -461,27 +496,27 @@ footer {
     }
 }
 
-/* Scroll-to-top Button Styles */
+
 #scrollToTopBtn {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed position */
-    bottom: 20px; /* Distance from bottom */
-    right: 30px; /* Distance from right */
-    z-index: 99; /* Higher z-index to be above other content */
-    border: none; /* No border */
-    outline: none; /* No outline */
-    background-color: rgba(0, 123, 255, 0.7); /* Blue background with transparency */
-    color: white; /* White text/arrow */
-    cursor: pointer; /* Pointer cursor on hover */
-    padding: 15px; /* Some padding */
-    border-radius: 50%; /* Circular shape */
-    font-size: 20px; /* Large arrow */
-    line-height: 1; /* Adjust line height for arrow */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow */
+    display: none;
+    position: fixed; 
+    bottom: 20px;
+    right: 30px;
+    z-index: 99; 
+    border: none; 
+    outline: none;
+    background-color: rgba(0, 123, 255, 0.7); 
+    color: white; 
+    cursor: pointer; 
+    padding: 15px; 
+    border-radius: 50%; 
+    font-size: 20px;
+    line-height: 1; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
     transition: background-color 0.3s, opacity 0.3s, transform 0.3s;
 }
 
 #scrollToTopBtn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    background-color: #0056b3; 
+    transform: scale(1.05); 
 }
