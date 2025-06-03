@@ -138,6 +138,11 @@ C<!DOCTYPE html>
         document.documentElement.scrollTop = 0; 
     };
 });
+        document.queryselector("form").addEventListener("submit","function(e)
+                                                        {e.preventDefault();//prevent page reload 
+                                                         alert("Thank you For Your Feedback!");
+                                                         this.reset(); //optional: clears the form
+                                                        });
     </script>
       <button id="scrollToTopBtn" title="Go to top">&#9650;</button>
 
